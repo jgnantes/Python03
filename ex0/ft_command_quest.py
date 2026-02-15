@@ -1,9 +1,8 @@
-""""""
-
 import sys
 
-if __name__ == "__main__":
-    print("=== Command Quest ===")
+
+def ft_command_quest():
+    """Display command-line arguments passed to the script."""
     length: int = len(sys.argv)
 
     if length == 1:
@@ -18,3 +17,8 @@ if __name__ == "__main__":
             i += 1
 
     print(f"Total arguments: {length}")
+
+
+if __name__ == "__main__":
+    print("=== Command Quest ===")
+    ft_command_quest()
