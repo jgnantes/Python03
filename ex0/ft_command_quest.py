@@ -3,20 +3,20 @@ import sys
 
 def ft_command_quest():
     """Display command-line arguments passed to the script."""
-    length: int = len(sys.argv)
+    argc: int = len(sys.argv)
 
-    if length == 1:
+    if argc == 1:
         print("No arguments provided!")
 
     print(f"Program name: {sys.argv[0]}")
 
-    if length > 1:
+    if argc > 1:
         i: int = 1
-        while i < length:
+        while i < argc:
             print(f"Argument {i}: {sys.argv[i]}")
             i += 1
 
-    print(f"Total arguments: {length}")
+    print(f"Total arguments: {argc}")
 
 
 if __name__ == "__main__":
