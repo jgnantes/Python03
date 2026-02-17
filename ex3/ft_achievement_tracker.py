@@ -2,10 +2,13 @@ def ft_achievement_tracker(achievements: list, player: str) -> set:
     """"""
     try:
         returning_set: set = set(achievements)
-    except Exception as e:
-        print(f"Error detected: {e},", end = ' ')
-        print(f"{player}'s achievements could not be set")
+    except TypeError as e:
+        print(f"Error detected: {e},", end=' ')
+        print(
+            f"{player}'s achievements must be an iterable of hashable values"
+            )
         return set()
+
     print(f"Player {player} achievements: {returning_set}")
     return returning_set
 
@@ -17,12 +20,18 @@ def ft_achievement_analytics(set_1: set, set_2: set, set_3: set):
         print("Achievement analytics could not be processed")
         return
 
-    union_set = set_1.union(set_2, set_3)
-    inter_set = set_1.intersection(set_2, set_3)
-    only_1 = set_1 - set_2 - set_3
-    only_2 = set_2 - set_1 - set_3
-    only_3 = set_3 - set_1 - set_2
-    rare = only_1 | only_2 | only_3
+    try:
+        union_set = set_1.union(set_2, set_3)
+        inter_set = set_1.intersection(set_2, set_3)
+        only_1 = set_1 - set_2 - set_3
+        only_2 = set_2 - set_1 - set_3
+        only_3 = set_3 - set_1 - set_2
+        rare = only_1 | only_2 | only_3
+    except (AttributeError, TypeError) as e:
+        print(f"Error detected: {e}")
+        print("Achievement analytics could not be processed")
+        return
+
     print(f"All unique achievements: {union_set}")
     print(f"Total unique achievements: {len(union_set)}")
     print(f"Common to all players: {inter_set}")
