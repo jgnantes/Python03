@@ -1,5 +1,5 @@
 def ft_achievement_tracker(achievements: list, player: str) -> set:
-    """"""
+    """Casts a list of achievements from a player into a set and prints it"""
     try:
         returning_set: set = set(achievements)
     except TypeError as e:
@@ -14,7 +14,8 @@ def ft_achievement_tracker(achievements: list, player: str) -> set:
 
 
 def ft_achievement_analytics(set_1: set, set_2: set, set_3: set):
-    """"""
+    """Compares elemens between three different sets of achievements
+    and prints the results"""
     if set_1 is None or set_2 is None or set_3 is None:
         print("Error detected: one or more sets are None")
         print("Achievement analytics could not be processed")
@@ -44,7 +45,11 @@ if __name__ == "__main__":
     alice_set = ft_achievement_tracker(alice, "alice")
     bob = ['first_kill', 'level_10', 'boss_slayer', 'collector']
     bob_set = ft_achievement_tracker(bob, "bob")
-    charlie = ['level_10', 'treasure_hunter', 'boss_slayer', 'speed_demon',
+    charlie = [
+        'level_10',
+        'treasure_hunter',
+        'boss_slayer',
+        'speed_demon',
         'perfectionist']
     charlie_set = ft_achievement_tracker(charlie, "charlie")
 

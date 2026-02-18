@@ -35,7 +35,7 @@ def inventory_system_analysis(inventory: dict):
 
 
 def current_inventory(inventory: dict):
-    """"""
+    """Prints the current inventory and quantities"""
     total: int = 0
     for _, value in inventory.items():
         total += value
@@ -46,7 +46,7 @@ def current_inventory(inventory: dict):
 
 
 def inventory_statistic(inventory: dict):
-    """"""
+    """Shows an overview of statistics from the inventory"""
     highest: int = 0
     most_abundant: str = ""
     for key, value in inventory.items():
@@ -66,17 +66,19 @@ def inventory_statistic(inventory: dict):
 
 
 def item_categories(inventory: dict):
+    """Categorizes items according to their quantities
+    and prints each category"""
     abundant: dict = {}
     moderate: dict = {}
     scarce: dict = {}
 
     for key, value in inventory.items():
         if value >= 10:
-            abundant.update({key:value})
+            abundant.update({key: value})
         elif value >= 5 and value < 10:
-            moderate.update({key:value})
+            moderate.update({key: value})
         else:
-            scarce.update({key:value})
+            scarce.update({key: value})
 
     if abundant:
         print(f"Abundant: {abundant}")
@@ -87,6 +89,7 @@ def item_categories(inventory: dict):
 
 
 def management_suggestions(inventory: dict):
+    """Suggests restocking based on quantity"""
     restock: list = []
 
     for key, value in inventory.items():
@@ -96,6 +99,8 @@ def management_suggestions(inventory: dict):
 
 
 def dictionary_poperties_demo(inventory: dict, sample_key: str):
+    """Lists keys and values from a dictionary and
+    checks if there is a sample key within it"""
     keys: set = []
     values: list = []
     lookup: bool = False
@@ -118,11 +123,11 @@ if __name__ == "__main__":
         try:
             key, value = parse_str(item)
             if value <= 0:
-                print(f'Error: "value" cannot be zero or negative')
+                print('Error: "value" cannot be zero or negative')
                 print(f'"{key}" could not be added to the inventory')
                 print("Try again using a value higher than zero\n")
             else:
-                inventory.update({key:value})
+                inventory.update({key: value})
         except (TypeError, ValueError):
             print('Try again using a valid "key:value" format\n')
 

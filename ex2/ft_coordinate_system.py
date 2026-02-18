@@ -2,7 +2,8 @@ import math
 
 
 def parse_str(string: str) -> tuple:
-    """"""
+    """Splits each string into three substrings separated by ','
+    and then parses then into a three-element integer tuple"""
     try:
         values: list = string.split(",")
         x: int = int(values[0])
@@ -15,12 +16,13 @@ def parse_str(string: str) -> tuple:
     except Exception as e:
         print(f'Parsing invalid coordinates: "{string}"')
         print(f"Error parsing coordinates: {e}")
-        print(f"Error details - Type: {type(e).__name__}, Args: {e.args}")
+        print(f"Error details - Type: {type(e).__name__}, Args: {e.args}\n")
         return None
 
 
 def calculate_distance(coord: tuple, origin: tuple) -> float:
-    """"""
+    """Uses the Euclidean formul to calculate
+    the distance between two 3D coordinates"""
     try:
         distance: float = math.sqrt((
             (coord[0] - origin[0])**2 +
@@ -38,12 +40,13 @@ def calculate_distance(coord: tuple, origin: tuple) -> float:
 
 
 def unpack_tuple(pack: tuple):
-    """"""
+    """Unpacks a three-element tuple and prints its values"""
     try:
         x, y, z = pack
+        print("Unpacking demonstration:")
         print(f"Player at x={x}, y={y}, z={z}")
         print(f"Coordinates: X={x}, Y={y}, Z={z}")
-    except Exception as e:
+    except (ValueError, TypeError) as e:
         print(f'Invalid unpacking : "{pack}"')
         print("Error unpacking tuple:", e)
         print(f"Error details - Type: {type(e).__name__}, Args: {e.args}")
@@ -63,5 +66,4 @@ if __name__ == "__main__":
 
     parse_str("abc,def,ghi")
 
-    print("\nUnpacking demonstration:")
     unpack_tuple(parsed_pos_2)

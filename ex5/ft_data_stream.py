@@ -2,10 +2,15 @@ from typing import Generator
 
 
 def event_processing() -> Generator:
-    """"""
+    """Processes, prints and yields several random event statistics"""
     players: list = ["alice", "bob", "charlie"]
-    events: list = ["killed monster", "found treasure", "leveled up",
-        "cooked feijoada", "sang 'jingle bells'", "fell in love with you"]
+    events: list = [
+        "killed monster",
+        "found treasure",
+        "leveled up",
+        "cooked feijoada",
+        "sang 'jingle bells'",
+        "fell in love with you"]
     i: int = 1
     high_levels: int = 0
     treasure: int = 0
@@ -21,7 +26,7 @@ def event_processing() -> Generator:
         if event == "leveled up":
             level_up += 1
         yield (
-            f"Event {i}: Player {player} (level {level}) {event}", 
+            f"Event {i}: Player {player} (level {level}) {event}",
             high_levels,
             treasure,
             level_up
@@ -30,7 +35,7 @@ def event_processing() -> Generator:
 
 
 def fibonacci() -> Generator:
-    """"""
+    """Calculates a fibonacci sequence"""
     a, b = 0, 1
     while True:
         yield a
@@ -38,7 +43,7 @@ def fibonacci() -> Generator:
 
 
 def prime() -> Generator:
-    """"""
+    """Finds and yields prime numbers starting from 2"""
     prime_value: int = 2
     while True:
         yield prime_value
@@ -64,7 +69,7 @@ if __name__ == "__main__":
             if i == 1 or i == 2 or i == 3:
                 print(event)
                 i += 1
-        print ("...")
+        print("...")
         print("\n=== Stream Analytics ===")
         print(f"Total events processed: {iterations}")
         print(f"High-level players (10+): {high_levels}")
@@ -75,13 +80,13 @@ if __name__ == "__main__":
 
     print("\n=== Generator Demonstration ===")
     fib = fibonacci()
-    print("Fibonacci sequence (first 10):", end = ' ')
+    print("Fibonacci sequence (first 10):", end=' ')
     for _ in range(9):
-        print(next(fib), end = ', ')
-    print(next(fib), end = ' ')
+        print(next(fib), end=', ')
+    print(next(fib), end=' ')
     prime_value = prime()
-    print("\nPrime numbers (first 5):", end = ' ')
+    print("\nPrime numbers (first 5):", end=' ')
     for _ in range(4):
-        print(next(prime_value), end = ', ')
-    print(next(prime_value), end = ' ')
+        print(next(prime_value), end=', ')
+    print(next(prime_value), end=' ')
     print("")
