@@ -23,7 +23,7 @@ def parse_str(arg: str) -> tuple:
     return key, value
 
 
-def inventory_system_analysis(inventory: dict):
+def inventory_system_analysis(inventory: dict) -> None:
     """Counts total and unique items"""
     total: int = 0
     unique: int = 0
@@ -34,7 +34,7 @@ def inventory_system_analysis(inventory: dict):
     print(f"Unique item types: {unique}")
 
 
-def current_inventory(inventory: dict):
+def current_inventory(inventory: dict) -> None:
     """Prints the current inventory and quantities"""
     total: int = 0
     for _, value in inventory.items():
@@ -45,7 +45,7 @@ def current_inventory(inventory: dict):
         print(f"{key}: {value} units ({percent:.1f}%)")
 
 
-def inventory_statistic(inventory: dict):
+def inventory_statistic(inventory: dict) -> None:
     """Shows an overview of statistics from the inventory"""
     highest: int = 0
     most_abundant: str = ""
@@ -65,7 +65,7 @@ def inventory_statistic(inventory: dict):
     print(f"Least abundant: {least_abundant} ({lowest} units)")
 
 
-def item_categories(inventory: dict):
+def item_categories(inventory: dict) -> None:
     """Categorizes items according to their quantities
     and prints each category"""
     abundant: dict = {}
@@ -88,7 +88,7 @@ def item_categories(inventory: dict):
         print(f"Scarce: {scarce}")
 
 
-def management_suggestions(inventory: dict):
+def management_suggestions(inventory: dict) -> None:
     """Suggests restocking based on quantity"""
     restock: list = []
 
@@ -98,7 +98,7 @@ def management_suggestions(inventory: dict):
     print(f"Restock needed: {restock}")
 
 
-def dictionary_poperties_demo(inventory: dict, sample_key: str):
+def dictionary_poperties_demo(inventory: dict, sample_key: str) -> None:
     """Lists keys and values from a dictionary and
     checks if there is a sample key within it"""
     keys: set = []
