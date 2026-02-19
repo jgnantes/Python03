@@ -39,7 +39,7 @@ def calculate_distance(coord: tuple, origin: tuple) -> float:
         return None
 
 
-def unpack_tuple(pack: tuple):
+def unpack_tuple(pack: tuple) -> None:
     """Unpacks a three-element tuple and prints its values"""
     try:
         x, y, z = pack
