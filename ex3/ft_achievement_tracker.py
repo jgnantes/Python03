@@ -13,7 +13,7 @@ def ft_achievement_tracker(achievements: list, player: str) -> set:
     return returning_set
 
 
-def ft_achievement_analytics(set_1: set, set_2: set, set_3: set):
+def ft_achievement_analytics(set_1: set, set_2: set, set_3: set) -> None:
     """Compares elemens between three different sets of achievements
     and prints the results"""
     if set_1 is None or set_2 is None or set_3 is None:
