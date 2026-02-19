@@ -1,7 +1,7 @@
 import sys
 
 
-def ft_score_analytics():
+def ft_score_analytics() -> None:
     """Process command-line scores and display basic statistics."""
     processed_score: list = []
 
