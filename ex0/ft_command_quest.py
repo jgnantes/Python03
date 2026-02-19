@@ -1,7 +1,7 @@
 import sys
 
 
-def ft_command_quest():
+def ft_command_quest() -> None:
     """Display command-line arguments passed to the script."""
     argc: int = len(sys.argv)
 
