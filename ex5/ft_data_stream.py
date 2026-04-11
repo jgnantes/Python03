@@ -47,12 +47,12 @@ def prime() -> Generator:
     prime_value: int = 2
     while True:
         yield prime_value
+        n = prime_value
         prime_value += 1
-        n = prime_value - 1
-        while n > 1:
+        while n >= 2:
             if prime_value % n == 0:
+                n = prime_value
                 prime_value += 1
-                n = prime_value - 1
             n -= 1
 
 
@@ -86,7 +86,7 @@ if __name__ == "__main__":
     print(next(fib), end=' ')
     prime_value = prime()
     print("\nPrime numbers (first 5):", end=' ')
-    for _ in range(4):
+    for _ in range(23):
         print(next(prime_value), end=', ')
     print(next(prime_value), end=' ')
     print("")

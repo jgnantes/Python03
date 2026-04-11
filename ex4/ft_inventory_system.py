@@ -56,10 +56,13 @@ def inventory_statistic(inventory: dict) -> None:
 
     lowest: int = highest
     least_abundant: str = ""
-    for key, value in inventory.items():
-        if value < lowest:
-            lowest = value
-            least_abundant = key
+    if len(inventory) > 1:
+        for key, value in inventory.items():
+            if value < lowest:
+                lowest = value
+                least_abundant = key
+    else:
+        least_abundant = most_abundant
 
     print(f"Most abundant: {most_abundant} ({highest} units)")
     print(f"Least abundant: {least_abundant} ({lowest} units)")
@@ -101,12 +104,12 @@ def management_suggestions(inventory: dict) -> None:
 def dictionary_poperties_demo(inventory: dict, sample_key: str) -> None:
     """Lists keys and values from a dictionary and
     checks if there is a sample key within it"""
-    keys: set = []
+    keys: set = set()
     values: list = []
     lookup: bool = False
 
     for key, value in inventory.items():
-        keys += [key]
+        keys.add(key)
         if key == sample_key:
             lookup = True
         values += [value]
